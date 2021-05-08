@@ -14,6 +14,10 @@ public class City {
         this.city = city;
     }
 
+    public City(String city) {
+        this.city = city;
+    }
+
     public City(String lat, String lon) {
         this.lat = lat;
         this.lon = lon;

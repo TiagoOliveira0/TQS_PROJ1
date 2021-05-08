@@ -31,6 +31,20 @@ class Cache implements CacheService{
         avg = (min + max) / 2;
     }
 
+    public boolean isEmpty(){
+        onAccess();
+        if(map.size()==0)
+            return true;
+
+        else
+            return false;
+    }
+
+    public int size(){
+        onAccess();
+        return map.size();
+    }
+
     public boolean add(Map<City, List<Air>> e) {
         City city = null;
         for (Iterator<Map.Entry<City, List<Air>>> it = e.entrySet().iterator(); it.hasNext();) {

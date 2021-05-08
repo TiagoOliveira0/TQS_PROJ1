@@ -12,4 +12,8 @@ public interface CacheService {
     public boolean containsInfo(String city);
 
     public List<Air> getValue(String city);
+
+    public boolean isEmpty();
+
+    public int size();
 }
