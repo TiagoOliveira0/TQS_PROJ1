@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Controller
-public class AirRestController {
+public class    AirRestController {
 
     Logger logger = LoggerFactory.getLogger(AirRestController.class);
 
