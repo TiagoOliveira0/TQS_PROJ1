@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 name: Master Branch
-=======
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-name: Master Branch
->>>>>>> 565394e0314a4a8800be1431b123ce0d1222c5b3
 
 on:
   push:
