@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cbba7ab5-f680-44bd-9962-9dd4ed8a4031" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/Midterm_Assignment.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/Air.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirQualityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirQualityGeoLocationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirQualityGeoLocationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirQualityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirQualityServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AirRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/AppApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/Cache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/CacheService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/app/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/AirQualityLast.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/AirQualityNext.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/AirQualityNow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ErrorPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/HomePage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/app/AirQualityServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/app/CacheUnitTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1rWsPI5Ni6qmAAY7Xfzt83IOcxm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.demo.app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AppApplication">
+    <configuration name="AirQualityServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demo.app" />
+      <option name="MAIN_CLASS_NAME" value="com.demo.app.AirQualityServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AirQualityServiceTest.whenGetAirByNow_ThenCityShouldBeProvided" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demo.app" />
+      <option name="MAIN_CLASS_NAME" value="com.demo.app.AirQualityServiceTest" />
+      <option name="METHOD_NAME" value="whenGetAirByNow_ThenCityShouldBeProvided" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AirQualityServiceTest.whenGetAirLastDays_ThenCityShouldBeProvided" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demo.app" />
+      <option name="MAIN_CLASS_NAME" value="com.demo.app.AirQualityServiceTest" />
+      <option name="METHOD_NAME" value="whenGetAirLastDays_ThenCityShouldBeProvided" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CacheUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demo.app" />
+      <option name="MAIN_CLASS_NAME" value="com.demo.app.CacheUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CacheUnitTest.timetolive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demo.app" />
+      <option name="MAIN_CLASS_NAME" value="com.demo.app.CacheUnitTest" />
+      <option name="METHOD_NAME" value="timetolive" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.demo.app.AppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AirQualityServiceTest" />
+        <item itemvalue="JUnit.AirQualityServiceTest.whenGetAirLastDays_ThenCityShouldBeProvided" />
+        <item itemvalue="JUnit.AirQualityServiceTest.whenGetAirByNow_ThenCityShouldBeProvided" />
+        <item itemvalue="JUnit.CacheUnitTest" />
+        <item itemvalue="JUnit.CacheUnitTest.timetolive" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbba7ab5-f680-44bd-9962-9dd4ed8a4031" name="Default Changelist" comment="" />
+      <created>1619103155821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619103155821</updated>
+      <workItem from="1619103157440" duration="8795000" />
+      <workItem from="1619181601811" duration="9096000" />
+      <workItem from="1619286087788" duration="11129000" />
+      <workItem from="1619359648996" duration="11110000" />
+      <workItem from="1619432811203" duration="18722000" />
+      <workItem from="1619522179125" duration="16324000" />
+      <workItem from="1619894549007" duration="8486000" />
+      <workItem from="1620056510106" duration="1189000" />
+      <workItem from="1620061549086" duration="580000" />
+      <workItem from="1620135418262" duration="585000" />
+      <workItem from="1620229826624" duration="568000" />
+      <workItem from="1620319544076" duration="3624000" />
+      <workItem from="1620394228960" duration="592000" />
+      <workItem from="1620414151172" duration="4493000" />
+      <workItem from="1620472363237" duration="9727000" />
+      <workItem from="1620501362689" duration="2194000" />
+      <workItem from="1620556758810" duration="1236000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
