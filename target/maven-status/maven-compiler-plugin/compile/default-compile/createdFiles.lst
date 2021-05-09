@@ -1,0 +1,11 @@
+com/demo/app/AirRestController.class
+com/demo/app/AirQualityGeoLocationServiceImpl.class
+com/demo/app/AirQualityGeoLocationService.class
+com/demo/app/City.class
+com/demo/app/Cache.class
+com/demo/app/AirQualityServiceImpl.class
+com/demo/app/AirQualityService.class
+com/demo/app/AppApplication.class
+com/demo/app/Air.class
+com/demo/app/CacheService.class
+com/demo/app/AirQualityConfig.class
