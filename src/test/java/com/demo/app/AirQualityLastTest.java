@@ -3,9 +3,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNot.not;
 
+import io.github.bonigarcia.seljup.SeleniumJupiter;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,24 +28,17 @@ import java.time.Instant;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class AirQualityLastTestTest {
-  private WebDriver driver;
-  private Map<String, Object> vars;
-  JavascriptExecutor js;
-  @BeforeEach
-  public void setUp() {
-    System.setProperty("webdriver.gecko.driver", "/opt/webdriver/bin/geckodriver");
-    driver = new FirefoxDriver();
-    js = (JavascriptExecutor) driver;
-    vars = new HashMap<String, Object>();
-  }
-  @AfterEach
-  public void tearDown() {
-    driver.quit();
+
+@ExtendWith(SeleniumJupiter.class)
+public class AirQualityLastTest {
+  private FirefoxDriver driver;
+
+  public AirQualityLastTest(FirefoxDriver driver){
+    this.driver=driver;
   }
 
   @Test
-  public void airQualityLastTest() {
+  public void airQualityLastTest(FirefoxDriver driver) {
     driver.get("http://localhost:8080/");
     driver.manage().window().setSize(new Dimension(701, 705));
     driver.findElement(By.id("services")).click();
