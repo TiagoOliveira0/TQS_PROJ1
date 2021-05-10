@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 
 import io.github.bonigarcia.seljup.SeleniumJupiter;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.hamcrest.Matcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -26,17 +28,34 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
-@ExtendWith(SeleniumJupiter.class)
 public class AirQualityNextTest {
-  private FirefoxDriver driver;
+  private WebDriver driver;
 
-  public AirQualityNextTest(FirefoxDriver driver){
-    this.driver=driver;
+  @BeforeEach
+  public void setUp()
+  {
+    WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    options.addArguments("--headless");
+    driver = new ChromeDriver(options);
+    driver.navigate().to("https://the-internet.herokuapp.com/login");
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
+  }
+
+  @AfterEach
+  public void tearDown(){
+    if (driver != null) {
+      driver.quit();
+    }
   }
 
   @Test
-  public void airQualityNextTest(FirefoxDriver driver) {
+  public void airQualityNextTest() {
     driver.get("http://localhost:8080/");
     driver.manage().window().setSize(new Dimension(550, 705));
     driver.findElement(By.id("services")).click();
