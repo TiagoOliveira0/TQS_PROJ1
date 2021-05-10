@@ -140,9 +140,4 @@ class Cache implements CacheService{
         return avg;
     }
 
-    public Map<Map<City, List<Air>>, Long> getMap(){
-        onAccess();
-        return map;
-    }
-
 }
