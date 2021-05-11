@@ -18,7 +18,7 @@ public class Air {
     private String date;
 
 
-    public Air(String date,float lat, float lon, float co, float no, float no2, float o3, float so2, float pm2_5, float pm10, float nh3) {
+    public Air(String date, float lat, float lon, float co, float no, float no2, float o3, float so2, float pm2_5, float pm10, float nh3) {
         this.date = date;
         this.lat = lat;
         this.lon = lon;
@@ -81,6 +81,14 @@ public class Air {
     @Override
     public int hashCode() {
         return Objects.hash(lat, lon, co, no, no2, o3, so2, pm2_5, pm10, nh3);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Air air = (Air) o;
+        return Float.compare(air.lat, lat) == 0 && Float.compare(air.lon, lon) == 0 && Float.compare(air.co, co) == 0 && Float.compare(air.no, no) == 0 && Float.compare(air.no2, no2) == 0 && Float.compare(air.o3, o3) == 0 && Float.compare(air.so2, so2) == 0 && Float.compare(air.pm2_5, pm2_5) == 0 && Float.compare(air.pm10, pm10) == 0 && Float.compare(air.nh3, nh3) == 0 && Objects.equals(date, air.date);
     }
 
 }

@@ -41,7 +41,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             json = new JSONObject(json1);
         } catch (JSONException e) {
             logger.error("No JSON was found.");
-            e.printStackTrace();
         }
 
         if(json==null){
@@ -75,7 +74,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             co = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("co"));
         } catch (JSONException e) {
             logger.error("One of the JSON fields was null and so it was not possible to convert it.");
-            e.printStackTrace();
         }
 
         if(no2!=null && no!=null && o3!=null && so2!=null && pm2_5!=null && pm10!=null && nh3!=null && co!=null){
@@ -103,7 +101,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             json = new JSONObject(json1);
         } catch (JSONException e) {
             logger.error("No JSON found.");
-            e.printStackTrace();
         }
 
         if(json==null){
@@ -119,7 +116,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             tam = json.getJSONArray("list").length();
         } catch (JSONException e) {
             logger.warn("JSON not viable to the convertion.");
-            e.printStackTrace();
         }
 
         if(tam==0){
@@ -162,7 +158,6 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             } catch (JSONException e) {
                 logger.error("JSONexcepetion trying to convert it.");
-                e.printStackTrace();
             }
 
             if(last == null && day!=null){
@@ -201,7 +196,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             json = new JSONObject(json1);
         } catch (JSONException e) {
             logger.error("JSONExcepetion trying to converting it.");
-            e.printStackTrace();
         }
 
         if(json==null){
@@ -217,7 +211,6 @@ public class AirQualityServiceImpl implements AirQualityService{
             tam = json.getJSONArray("list").length();
         } catch (JSONException e) {
             logger.error("JSONException trying to get a parameter from it.");
-            e.printStackTrace();
         }
 
         if(tam==0){
@@ -260,7 +253,6 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             } catch (JSONException e) {
                 logger.error("JSONException trying to convert its fields.");
-                e.printStackTrace();
             }
 
             if(last == null && day!=null){

@@ -53,7 +53,7 @@ class Cache implements CacheService{
 
         boolean result = false;
 
-        if(!this.containsCity(city.getCity()) && city!=null) {
+        if(city!=null && !this.containsCity(city.getCity())) {
             map.put(e, Long.valueOf(System.nanoTime()));
             if(this.containsCity(city.getCity()))
                 result=true;

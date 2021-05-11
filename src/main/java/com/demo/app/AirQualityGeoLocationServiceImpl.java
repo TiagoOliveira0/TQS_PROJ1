@@ -29,7 +29,7 @@ public class AirQualityGeoLocationServiceImpl implements AirQualityGeoLocationSe
         try {
             json = new JSONObject(json1);
         } catch (JSONException e) {
-            e.printStackTrace();
+            logger.error("The json of the request came null");
         }
 
         if(json==null){
@@ -44,7 +44,7 @@ public class AirQualityGeoLocationServiceImpl implements AirQualityGeoLocationSe
             lon = json.getJSONArray("results").getJSONObject(0).getJSONObject("bounds").getJSONObject("southwest").getString("lng");
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            logger.error("Could not find latitude or longitude in the json answer request!");
         }
 
         if(lat==null || lon==null) {

@@ -303,7 +303,7 @@ public class AirRestController {
             String service,
             String local
     ){
-        if(local==""){
+        if(local.equals("")){
             logger.warn("Tried to search for null location!");
             return new RedirectView("");
         }
