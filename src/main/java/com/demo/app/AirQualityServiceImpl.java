@@ -23,6 +23,16 @@ public class AirQualityServiceImpl implements AirQualityService{
 
     Logger logger = LoggerFactory.getLogger(AirQualityServiceImpl.class);
 
+    private String l = "&lon=";
+
+    private String p = "&appid=";
+
+    private String f = "dd-MM-yyy";
+
+    private String com = "components";
+
+    private String P25 = "pm2_5";
+
     @Value("${api1.key}")
     private String api1Key;
 
@@ -34,7 +44,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
     @Override
     public Air getAirByNow(City city) {
-        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution?lat=" + city.getLat() + "&lon=" + city.getLon() + "&appid=" + api1Key, String.class);
+        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution?lat=" + city.getLat() + l + city.getLon() + p + api1Key, String.class);
 
         JSONObject json = null;
         try {
@@ -62,16 +72,16 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getString("dt"));
             Date dte = new Date((long) (dt*1000L));
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");
+            SimpleDateFormat dateFormat = new SimpleDateFormat(f);
             date = dateFormat.format(dte);
-            no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("no2"));
-            no = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("no"));
-            o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("o3"));
-            so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("so2"));
-            pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("pm2_5"));
-            pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("pm10"));
-            nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("nh3"));
-            co = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject("components").getString("co"));
+            no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no2"));
+            no = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no"));
+            o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("o3"));
+            so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("so2"));
+            pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString(P25));
+            pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("pm10"));
+            nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("nh3"));
+            co = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("co"));
         } catch (JSONException e) {
             logger.error("One of the JSON fields was null and so it was not possible to convert it.");
         }
@@ -94,7 +104,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         Integer last = null;
 
-        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + city.getLat() + "&lon=" + city.getLon() + "&appid=" + api1Key, String.class);
+        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + city.getLat() + l + city.getLon() + p + api1Key, String.class);
 
         JSONObject json = null;
         try {
@@ -139,16 +149,16 @@ public class AirQualityServiceImpl implements AirQualityService{
             try {
                 Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getString("dt"));
                 Date dte = new Date((long) (dt*1000L));
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");
+                SimpleDateFormat dateFormat = new SimpleDateFormat(f);
                 date = dateFormat.format(dte);
-                no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("no2"));
-                no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("no"));
-                o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("o3"));
-                so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("so2"));
-                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("pm2_5"));
-                pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("pm10"));
-                nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("nh3"));
-                co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("co"));
+                no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no2"));
+                no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
+                o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
+                so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
+                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
+                nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
+                co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
 
                 day = Integer.parseInt(json.getJSONArray("list").getJSONObject(i).getString("dt"));
 
@@ -189,7 +199,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         Integer last = null;
 
-        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + c.getLat() + "&lon=" + c.getLon() + "&appid=" + api1Key, String.class);
+        String json1 = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + c.getLat() + l + c.getLon() + p + api1Key, String.class);
 
         JSONObject json = null;
         try {
@@ -234,16 +244,16 @@ public class AirQualityServiceImpl implements AirQualityService{
             try {
                 Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getString("dt"));
                 Date dte = new Date((long) (dt*1000L));
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");
+                SimpleDateFormat dateFormat = new SimpleDateFormat(f);
                 date = dateFormat.format(dte);
-                no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("no2"));
-                no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("no"));
-                o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("o3"));
-                so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("so2"));
-                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("pm2_5"));
-                pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("pm10"));
-                nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("nh3"));
-                co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject("components").getString("co"));
+                no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no2"));
+                no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
+                o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
+                so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
+                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
+                nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
+                co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
 
                 day = Integer.parseInt(json.getJSONArray("list").getJSONObject(i).getString("dt"));
 

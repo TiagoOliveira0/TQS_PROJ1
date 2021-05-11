@@ -21,6 +21,12 @@ public class AirRestController {
 
     Logger logger = LoggerFactory.getLogger(AirRestController.class);
 
+    private String s = "s ago.";
+
+    private String nc = "No city was found.";
+
+    private String err = "ErrorPage";
+
     @Autowired
     private AirQualityService airQualityService;
 
@@ -44,7 +50,7 @@ public class AirRestController {
         City c = null;
         if(cache1.containsCity(city)){
             if(cache1.containsInfo(city)){
-                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 model.addAttribute("air",cache1.getValue(city).get(0));
                 return "AirQualityNow";
             }
@@ -68,8 +74,8 @@ public class AirRestController {
             return "AirQualityNow";
         }
         else{
-            logger.error("No city was found.");
-            return "ErrorPage";
+            logger.error(nc);
+            return err;
         }
 
     }
@@ -79,7 +85,7 @@ public class AirRestController {
         City c = null;
         if(cache2.containsCity(city)){
             if(cache2.containsInfo(city)){
-                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 model.addAttribute("air", cache2.getValue(city));
                 return "AirQualityNext";
             }
@@ -103,8 +109,8 @@ public class AirRestController {
             return "AirQualityNext";
         }
         else{
-            logger.error("No city was found.");
-            return "ErrorPage";
+            logger.error(nc);
+            return err;
         }
     }
 
@@ -113,7 +119,7 @@ public class AirRestController {
         City c = null;
         if(cache3.containsCity(city)){
             if(cache3.containsInfo(city)){
-                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 model.addAttribute("air",cache3.getValue(city));
                 return "AirQualityLast";
             }
@@ -135,8 +141,8 @@ public class AirRestController {
             return "AirQualityLast";
         }
         else{
-            logger.error("No city was found.");
-            return "ErrorPage";
+            logger.error(nc);
+            return err;
         }
     }
 
@@ -145,7 +151,7 @@ public class AirRestController {
         City c = null;
         if(cache1.containsCity(city)){
             if(cache1.containsInfo(city)){
-                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache1.getValue(city).get(0), HttpStatus.OK);
             }
             logger.info("Coordinates for the place requested were accessed via cache.");
@@ -184,7 +190,7 @@ public class AirRestController {
         City  c = null;
         if(cache2.containsCity(city)){
             if(cache2.containsInfo(city)){
-                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache2.getValue(city),HttpStatus.OK);
             }
             logger.info("Coordinates for the place requested were accessed via cache.");
@@ -214,7 +220,7 @@ public class AirRestController {
 
         }
         else{
-            logger.error("No city was found.");
+            logger.error(nc);
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
 
@@ -225,7 +231,7 @@ public class AirRestController {
         City c = null;
         if(cache3.containsCity(city)){
             if(cache3.containsInfo(city)){
-                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s ago.");
+                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache3.getValue(city),HttpStatus.OK);
             }
             logger.info("Coordinates were accessed via cache.");
@@ -248,12 +254,12 @@ public class AirRestController {
                 return new ResponseEntity<>(air,HttpStatus.OK);
             }
             else{
-                logger.error("There are no city or place with the name " + city + ".");
+                logger.error("There are no city or place for the request.");
                 return new ResponseEntity<>(air,HttpStatus.NOT_FOUND);
             }
         }
         else{
-            logger.error("No city was found.");
+            logger.error(nc);
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
 

@@ -48,12 +48,12 @@ public class AirQualityGeoLocationServiceImpl implements AirQualityGeoLocationSe
         }
 
         if(lat==null || lon==null) {
-            logger.error("OpencageData external api accessed to request the coordinates for the place called " + city + " but no coordinates were found.");
+            logger.error("OpencageData external api accessed to request coordinates but no coordinates were found.");
             return new City(null, null);
         }
 
 
-        logger.info("OpencageData external api accessed to request the coordinates for the place called " + city + ".");
+        logger.info("OpencageData external api accessed to request coordinates.");
         return new City(lat,lon,city);
     }
 }

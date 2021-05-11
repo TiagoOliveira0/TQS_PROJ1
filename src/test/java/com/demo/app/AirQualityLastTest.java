@@ -71,5 +71,7 @@ public class AirQualityLastTest {
     driver.findElement(By.name("local")).click();
     driver.findElement(By.name("local")).sendKeys("Aveiro");
     driver.findElement(By.cssSelector(".btn")).click();
+    assertThat(driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(2)")).getText(), is("40.528484"));
+    assertThat(driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(3)")).getText(), is("-8.7655525"));
   }
 }
