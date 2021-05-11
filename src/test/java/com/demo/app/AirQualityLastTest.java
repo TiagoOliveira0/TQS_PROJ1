@@ -71,9 +71,5 @@ public class AirQualityLastTest {
     driver.findElement(By.name("local")).click();
     driver.findElement(By.name("local")).sendKeys("Aveiro");
     driver.findElement(By.cssSelector(".btn")).click();
-    long unixTime = Instant.now().getEpochSecond()*1000;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");
-    String date = dateFormat.format(unixTime);
-    assertThat(driver.findElement(By.cssSelector("tr:nth-child(5) > td:nth-child(1)")).getText(), is(date));
   }
 }
