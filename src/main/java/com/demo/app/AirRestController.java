@@ -185,7 +185,7 @@ public class AirRestController {
             }
             else{
                 logger.error("No air pollution data found.");
-                return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(new Air("",0,0,0,0,0,0),HttpStatus.NOT_FOUND);
             }
         }
         else {
@@ -233,7 +233,7 @@ public class AirRestController {
         }
         else{
             logger.error(nc);
-            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new Air("",0,0,0,0,0,0),HttpStatus.NOT_FOUND);
         }
 
     }
@@ -274,7 +274,7 @@ public class AirRestController {
         }
         else{
             logger.error(nc);
-            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NOT_FOUND);
         }
 
     }
@@ -299,7 +299,7 @@ public class AirRestController {
 
         if(c == null){
             logger.error("There are no coordinates found fot city requested.");
-            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new City("","",""),HttpStatus.NOT_FOUND);
         }
 
 
