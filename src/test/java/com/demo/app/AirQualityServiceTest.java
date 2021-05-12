@@ -18,7 +18,7 @@ import java.util.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-public class AirQualityServiceTest {
+class AirQualityServiceTest {
 
     @Mock
     private RestTemplate restTemplate;

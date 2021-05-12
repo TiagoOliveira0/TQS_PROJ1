@@ -51,7 +51,7 @@ public class City {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        City city1 = (City) o;
+        var city1 = (City) o;
         return Objects.equals(lat, city1.lat) && Objects.equals(lon, city1.lon) && Objects.equals(cname, city1.cname);
     }
 

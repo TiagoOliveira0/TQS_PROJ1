@@ -66,7 +66,7 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air a = airQualityService.getAirByNow(c);
+            var a = airQualityService.getAirByNow(c);
             Map<City, List<Air>> res = new HashMap<>();
             List<Air> lista = new ArrayList<>();
             lista.add(a);
@@ -171,7 +171,7 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air a = airQualityService.getAirByNow(c);
+            var a = airQualityService.getAirByNow(c);
             if(a!=null){
                 Map<City, List<Air>> res = new HashMap<>();
                 List<Air> lista = new ArrayList<>();
@@ -295,7 +295,7 @@ public class AirRestController {
             return new ResponseEntity<>(cache3.getCity(city),HttpStatus.OK);
         }
 
-        City c = airQualityGeoLocationService.getCoordsByCity(city);
+        var c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(c == null){
             logger.error("There are no coordinates found fot city requested.");

@@ -41,7 +41,7 @@ class Cache implements CacheService{
             city = it.next().getKey();
         }
 
-        boolean result = false;
+        var result = false;
 
         if(city!=null && !this.containsCity(city.getCname())) {
             map.put(e, Long.valueOf(System.nanoTime()));

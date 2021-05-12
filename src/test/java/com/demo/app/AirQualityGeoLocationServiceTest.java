@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-public class AirQualityGeoLocationServiceTest {
+class AirQualityGeoLocationServiceTest {
 
     @Mock
     private RestTemplate restTemplate;

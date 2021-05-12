@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CacheUnitTest {
+class CacheUnitTest {
 
     private Cache cache;
 
