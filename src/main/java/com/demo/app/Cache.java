@@ -70,7 +70,7 @@ class Cache implements CacheService{
         for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
             Map<City, List<Air>> resultados = it.next().getKey();
 
-            for(Iterator<Map.Entry<City, List<Air>>> it2 = resultados.entrySet().iterator(); it.hasNext();) {
+            for(Iterator<Map.Entry<City, List<Air>>> it2 = resultados.entrySet().iterator(); it2.hasNext();) {
                 City i = it2.next().getKey();
                 if(i.getCname().equals(city) && !resultados.get(i).isEmpty())
                     return true;
