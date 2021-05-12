@@ -122,7 +122,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         List<Air> lista = new ArrayList<>();
 
-        int tam = 0;
+        var tam = 0;
 
         try {
             tam = json.getJSONArray("list").length();
@@ -135,7 +135,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             return new ArrayList<>();
         }   
 
-        for(int i=0; i<tam;i++) {
+        for(var i=0; i<tam;i++) {
             String date = null;
             Float no2 = null;
             Float no = null;
@@ -150,8 +150,8 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             try {
                 Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getString("dt"));
-                Date dte = new Date((long) (dt*1000L));
-                SimpleDateFormat dateFormat = new SimpleDateFormat(f);
+                var dte = new Date((long) (dt*1000L));
+                var dateFormat = new SimpleDateFormat(f);
                 date = dateFormat.format(dte);
                 no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no2"));
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
@@ -164,7 +164,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
                 day = Integer.parseInt(json.getJSONArray("list").getJSONObject(i).getString("dt"));
 
-                Instant instant = Instant.ofEpochSecond(day);
+                var instant = Instant.ofEpochSecond(day);
 
                 day = LocalDateTime.ofInstant(instant, ZoneOffset.UTC).getDayOfYear();
 
@@ -178,7 +178,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             }
 
             if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day>today){
-                Air a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
+                var a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
                 a.setSo2(so2);
                 a.setPm25(pm25);
                 a.setPm10(pm10);
@@ -202,7 +202,7 @@ public class AirQualityServiceImpl implements AirQualityService{
     public List<Air> getAirLastDays(City c) {
         long now = Instant.now().getEpochSecond();
 
-        Instant instant1 = Instant.ofEpochSecond(now);
+        var instant1 = Instant.ofEpochSecond(now);
 
         int today = LocalDateTime.ofInstant(instant1, ZoneOffset.UTC).getDayOfYear();
 
@@ -225,7 +225,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         List<Air> lista = new ArrayList<>();
 
-        int tam = 0;
+        var tam = 0;
 
         try {
             tam = json.getJSONArray("list").length();
@@ -238,7 +238,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             return new ArrayList<>();
         }
 
-        for(int i=0; i<tam;i++) {
+        for(var i=0; i<tam;i++) {
             String date = null;
             Float no2 = null;
             Float no = null;
@@ -253,8 +253,8 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             try {
                 Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getString("dt"));
-                Date dte = new Date((long) (dt*1000L));
-                SimpleDateFormat dateFormat = new SimpleDateFormat(f);
+                var dte = new Date((long) (dt*1000L));
+                var dateFormat = new SimpleDateFormat(f);
                 date = dateFormat.format(dte);
                 no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no2"));
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
@@ -267,7 +267,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
                 day = Integer.parseInt(json.getJSONArray("list").getJSONObject(i).getString("dt"));
 
-                Instant instant = Instant.ofEpochSecond(day);
+                var instant = Instant.ofEpochSecond(day);
 
                 day = LocalDateTime.ofInstant(instant, ZoneOffset.UTC).getDayOfYear();
 
@@ -281,7 +281,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             }
 
             if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day<=today){
-                Air a = new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3);
+                var a = new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3);
                 a.setSo2(so2);
                 a.setPm25(pm25);
                 a.setPm10(pm10);
