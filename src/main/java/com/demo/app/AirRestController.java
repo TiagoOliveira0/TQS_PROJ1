@@ -54,7 +54,7 @@ public class AirRestController {
         if(cache1.containsCity(city)){
             if(cache1.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then {} {}",time,s);
                 model.addAttribute("air",cache1.getValue(city).get(0));
                 return "AirQualityNow";
             }
@@ -73,7 +73,7 @@ public class AirRestController {
             res.put(c,lista);
             cache1.add(res);
             logger.info("AirQualityNow page was accessed.");
-            logger.info("Air pollution about today for the requested place was cached for the next " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s.");
+            logger.info("Air pollution about today for the requested place was cached for the next {} s.", time);
             model.addAttribute("air", var);
             return "AirQualityNow";
         }
@@ -90,7 +90,7 @@ public class AirRestController {
         if(cache2.containsCity(city)){
             if(cache2.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache2.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then {} {}", time,s);
                 model.addAttribute("air", cache2.getValue(city));
                 return "AirQualityNext";
             }
@@ -110,7 +110,7 @@ public class AirRestController {
             res.put(c,lista);
             cache2.add(res);
             time = TimeUnit.SECONDS.convert(cache2.getAvg(), TimeUnit.NANOSECONDS);
-            logger.info("Air pollution about the next 5 days for the requested place was cached for the next " + time + "s.");
+            logger.info("Air pollution about the next 5 days for the requested place was cached for the next {} s.",time);
             model.addAttribute("air", lista);
             return "AirQualityNext";
         }
@@ -126,7 +126,7 @@ public class AirRestController {
         if(cache3.containsCity(city)){
             if(cache3.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then {} {}",time,s);
                 model.addAttribute("air",cache3.getValue(city));
                 return "AirQualityLast";
             }
@@ -143,7 +143,7 @@ public class AirRestController {
             res.put(c,lista);
             cache3.add(res);
             time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
-            logger.info("Air pollution about the last 5 days for the requested place was cached for the next " + time + "s.");
+            logger.info("Air pollution about the last 5 days for the requested place was cached for the next {}s.",time);
             logger.info("AirQualityLast page was accessed.");
             model.addAttribute("air", lista);
             return "AirQualityLast";
@@ -160,7 +160,7 @@ public class AirRestController {
         if(cache1.containsCity(city)){
             if(cache1.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then {} {}",time,s);
                 return new ResponseEntity<>(cache1.getValue(city).get(0), HttpStatus.OK);
             }
             logger.info(info);
@@ -180,7 +180,7 @@ public class AirRestController {
                 cache1.add(res);
                 logger.info("AirQuality/now API endpoint was accessed.");
                 time = TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about today for the requested place was cached for the next " + time + "s.");
+                logger.info("Air pollution about today for the requested place was cached for the next {} s.",time);
                 return new ResponseEntity<>(var,HttpStatus.OK);
             }
             else{
@@ -201,7 +201,7 @@ public class AirRestController {
         if(cache2.containsCity(city)){
             if(cache2.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache2.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then {} {}", time,s);
                 return new ResponseEntity<>(cache2.getValue(city),HttpStatus.OK);
             }
             logger.info(info);
@@ -221,7 +221,7 @@ public class AirRestController {
                 cache2.add(res);
                 logger.info("AirQuality/next API endpoint was accessed.");
                 time = TimeUnit.SECONDS.convert(cache2.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the next 5 days for the place requested was cached for the next " + time + "s.");
+                logger.info("Air pollution about the next 5 days for the place requested was cached for the next {} s.",time);
 
                 return new ResponseEntity<>(air,HttpStatus.OK);
             }
@@ -244,7 +244,7 @@ public class AirRestController {
         if(cache3.containsCity(city)){
             if(cache3.containsInfo(city)){
                 time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + time + s);
+                logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then {} {}",time,s);
                 return new ResponseEntity<>(cache3.getValue(city),HttpStatus.OK);
             }
             logger.info(info);
@@ -264,7 +264,7 @@ public class AirRestController {
                 cache3.add(res);
                 logger.info("AirQuality/last API endpoint was accessed.");
                 time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
-                logger.info("Air pollution about the last 5 days for the requested place was cached for the next " + time + "s.");
+                logger.info("Air pollution about the last 5 days for the requested place was cached for the next {}s.",time);
                 return new ResponseEntity<>(air,HttpStatus.OK);
             }
             else{
@@ -313,7 +313,7 @@ public class AirRestController {
 
         logger.info("AirQuality/geo API endpoint was accessed to request the coordinates a place.");
         time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
-        logger.info("Coordinates for the requested place was cached for " + time + "s.");
+        logger.info("Coordinates for the requested place was cached for {}s.",time);
         return new ResponseEntity<>(var,HttpStatus.OK);
     }
 
