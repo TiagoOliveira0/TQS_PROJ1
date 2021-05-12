@@ -3,10 +3,7 @@ package com.demo.app;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Cache implements CacheService{
     private long avg;
@@ -53,9 +50,9 @@ class Cache implements CacheService{
 
         boolean result = false;
 
-        if(city!=null && !this.containsCity(city.getCity())) {
+        if(city!=null && !this.containsCity(city.getCname())) {
             map.put(e, Long.valueOf(System.nanoTime()));
-            if(this.containsCity(city.getCity()))
+            if(this.containsCity(city.getCname()))
                 result=true;
         }
         onAccess();
@@ -67,7 +64,7 @@ class Cache implements CacheService{
         for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
             Map<City, List<Air>> resultados = it.next().getKey();
             for(City i: resultados.keySet()){
-                if(i.getCity().equals(city))
+                if(i.getCname().equals(city))
                     return true;
             }
         }
@@ -80,7 +77,7 @@ class Cache implements CacheService{
         for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
             Map<City, List<Air>> resultados = it.next().getKey();
             for(City i: resultados.keySet()){
-                if(i.getCity().equals(city) && resultados.get(i).size()!=0)
+                if(i.getCname().equals(city) && resultados.get(i).size()!=0)
                     return true;
             }
         }
@@ -94,12 +91,12 @@ class Cache implements CacheService{
             for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
                 Map<City, List<Air>> resultados = it.next().getKey();
                 for(City i: resultados.keySet()){
-                    if(i.getCity().equals(city))
+                    if(i.getCname().equals(city))
                         return resultados.get(i);
                 }
             }
         }
-        return null;
+        return new ArrayList<>();
 
 
     }
@@ -110,7 +107,7 @@ class Cache implements CacheService{
             for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
                 Map<City, List<Air>> resultados = it.next().getKey();
                 for(City i: resultados.keySet()){
-                    if(i.getCity().equals(city))
+                    if(i.getCname().equals(city))
                         return i;
                 }
             }

@@ -49,7 +49,7 @@ public class AirExternalAPITest {
         City c1 = new City("40.528484","-8.7655525","Aveiro");
 
         when().
-                get("/AirQuality/now?city={city}", c1.getCity()).
+                get("/AirQuality/now?city={city}", c1.getCname()).
                 then().
                 statusCode(200)
                 .body(
@@ -66,7 +66,7 @@ public class AirExternalAPITest {
 
 
         when().
-                get("/AirQuality/next?city={city}", c1.getCity()).
+                get("/AirQuality/next?city={city}", c1.getCname()).
                 then().
                 statusCode(200)
                 .body(
@@ -98,7 +98,7 @@ public class AirExternalAPITest {
         City c1 = new City("40.528484","-8.7655525","Aveiro");
 
         when().
-                get("/AirQuality/last?city={city}", c1.getCity()).
+                get("/AirQuality/last?city={city}", c1.getCname()).
                 then().
                 statusCode(200)
                 .body(

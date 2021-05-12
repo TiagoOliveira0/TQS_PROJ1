@@ -6,16 +6,16 @@ public class City {
 
     private String lat;
     private String lon;
-    private String city;
+    private String cname;
 
-    public City(String lat, String lon, String city) {
+    public City(String lat, String lon, String cname) {
         this.lat = lat;
         this.lon = lon;
-        this.city = city;
+        this.cname = cname;
     }
 
-    public City(String city) {
-        this.city = city;
+    public City(String cname) {
+        this.cname = cname;
     }
 
     public City(String lat, String lon) {
@@ -39,12 +39,12 @@ public class City {
         this.lon = lon;
     }
 
-    public String getCity() {
-        return city;
+    public String getCname() {
+        return cname;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCname(String cname) {
+        this.cname = cname;
     }
 
     @Override
@@ -52,12 +52,12 @@ public class City {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city1 = (City) o;
-        return Objects.equals(lat, city1.lat) && Objects.equals(lon, city1.lon) && Objects.equals(city, city1.city);
+        return Objects.equals(lat, city1.lat) && Objects.equals(lon, city1.lon) && Objects.equals(cname, city1.cname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lat, lon, city);
+        return Objects.hash(lat, lon, cname);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class City {
         return "City{" +
                 "lat='" + lat + '\'' +
                 ", lon='" + lon + '\'' +
-                ", city='" + city + '\'' +
+                ", city='" + cname + '\'' +
                 '}';
     }
 }

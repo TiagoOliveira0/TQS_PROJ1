@@ -66,15 +66,15 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air var = airQualityService.getAirByNow(c);
+            Air a = airQualityService.getAirByNow(c);
             Map<City, List<Air>> res = new HashMap<>();
             List<Air> lista = new ArrayList<>();
-            lista.add(var);
+            lista.add(a);
             res.put(c,lista);
             cache1.add(res);
             logger.info("AirQualityNow page was accessed.");
             logger.info("Air pollution about today for the requested place was cached for the next {} s.", time);
-            model.addAttribute("air", var);
+            model.addAttribute("air", a);
             return "AirQualityNow";
         }
         else{
@@ -171,17 +171,17 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air var = airQualityService.getAirByNow(c);
-            if(var!=null){
+            Air a = airQualityService.getAirByNow(c);
+            if(a!=null){
                 Map<City, List<Air>> res = new HashMap<>();
                 List<Air> lista = new ArrayList<>();
-                lista.add(var);
+                lista.add(a);
                 res.put(c,lista);
                 cache1.add(res);
                 logger.info("AirQuality/now API endpoint was accessed.");
                 time = TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS);
                 logger.info("Air pollution about today for the requested place was cached for the next {} s.",time);
-                return new ResponseEntity<>(var,HttpStatus.OK);
+                return new ResponseEntity<>(a,HttpStatus.OK);
             }
             else{
                 logger.error("No air pollution data found.");
@@ -295,9 +295,9 @@ public class AirRestController {
             return new ResponseEntity<>(cache3.getCity(city),HttpStatus.OK);
         }
 
-        City var = airQualityGeoLocationService.getCoordsByCity(city);
+        City c = airQualityGeoLocationService.getCoordsByCity(city);
 
-        if(var == null){
+        if(c == null){
             logger.error("There are no coordinates found fot city requested.");
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
@@ -306,7 +306,7 @@ public class AirRestController {
         List<Air> air = new ArrayList<>();
         Map<City,List<Air>> res = new HashMap<>();
 
-        res.put(var,air);
+        res.put(c,air);
         cache1.add(res);
         cache2.add(res);
         cache3.add(res);
@@ -314,7 +314,7 @@ public class AirRestController {
         logger.info("AirQuality/geo API endpoint was accessed to request the coordinates a place.");
         time = TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS);
         logger.info("Coordinates for the requested place was cached for {}s.",time);
-        return new ResponseEntity<>(var,HttpStatus.OK);
+        return new ResponseEntity<>(c,HttpStatus.OK);
     }
 
 

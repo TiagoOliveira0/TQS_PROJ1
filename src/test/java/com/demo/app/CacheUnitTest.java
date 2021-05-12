@@ -53,7 +53,7 @@ public class CacheUnitTest {
     @Test
     void size() {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
-        assertEquals(cache.size(),0);
+        assertEquals(0,cache.size());
 
         City c1 = new City("Aveiro");
         Air a1 = new Air("",0,0,0,0,0,0);
@@ -67,7 +67,7 @@ public class CacheUnitTest {
         map.put(c1,lista);
         cache.add(map);
 
-        assertEquals(cache.size(),1);
+        assertEquals(1,cache.size());
 
         City c2 = new City("Porto");
         Map<City, List<Air>> map2 = new HashMap<>();
@@ -79,7 +79,7 @@ public class CacheUnitTest {
         map3.put(c3,lista);
         cache.add(map3);
 
-        assertEquals(cache.size(),3);
+        assertEquals(3,cache.size());
     }
 
     @Test
