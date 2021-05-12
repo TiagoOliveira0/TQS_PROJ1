@@ -233,7 +233,7 @@ public class AirRestController {
         }
         else{
             logger.error(nc);
-            return new ResponseEntity<>(new Air("",0,0,0,0,0,0),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NOT_FOUND);
         }
 
     }
