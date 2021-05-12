@@ -68,8 +68,8 @@ public class AirQualityServiceImpl implements AirQualityService{
         try {
 
             Float dt = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getString("dt"));
-            Date dte = new Date((long) (dt*1000L));
-            SimpleDateFormat dateFormat = new SimpleDateFormat(f);
+            var dte = new Date((long) (dt*1000L));
+            var dateFormat = new SimpleDateFormat(f);
             date = dateFormat.format(dte);
             no2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no2"));
             no = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no"));
@@ -84,7 +84,7 @@ public class AirQualityServiceImpl implements AirQualityService{
         }
 
         if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null){
-            Air a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
+            var a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
             a.setSo2(so2);
             a.setPm25(pm25);
             a.setPm10(pm10);
@@ -99,7 +99,7 @@ public class AirQualityServiceImpl implements AirQualityService{
     public List<Air> getAirNextDays(City city){
         long now = Instant.now().getEpochSecond();
 
-        Instant instant1 = Instant.ofEpochSecond(now);
+        var instant1 = Instant.ofEpochSecond(now);
 
         int today = LocalDateTime.ofInstant(instant1, ZoneOffset.UTC).getDayOfYear();
 
