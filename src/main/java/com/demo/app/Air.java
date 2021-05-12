@@ -15,8 +15,7 @@ public class Air {
     private float nh3;
     private String date;
 
-
-    public Air(String date, float lat, float lon, float co, float no, float no2, float o3, float so2, float pm25, float pm10, float nh3) {
+    public Air(String date, float lat, float lon, float co, float no, float no2, float o3) {
         this.date = date;
         this.lat = lat;
         this.lon = lon;
@@ -24,10 +23,6 @@ public class Air {
         this.no = no;
         this.no2 = no2;
         this.o3 = o3;
-        this.so2 = so2;
-        this.pm25 = pm25;
-        this.pm10 = pm10;
-        this.nh3 = nh3;
     }
 
 
@@ -72,6 +67,50 @@ public class Air {
 
     public float getNh3() {
         return nh3;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
+    }
+
+    public void setCo(float co) {
+        this.co = co;
+    }
+
+    public void setNo(float no) {
+        this.no = no;
+    }
+
+    public void setNo2(float no2) {
+        this.no2 = no2;
+    }
+
+    public void setO3(float o3) {
+        this.o3 = o3;
+    }
+
+    public void setSo2(float so2) {
+        this.so2 = so2;
+    }
+
+    public void setPm25(float pm25) {
+        this.pm25 = pm25;
+    }
+
+    public void setPm10(float pm10) {
+        this.pm10 = pm10;
+    }
+
+    public void setNh3(float nh3) {
+        this.nh3 = nh3;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 

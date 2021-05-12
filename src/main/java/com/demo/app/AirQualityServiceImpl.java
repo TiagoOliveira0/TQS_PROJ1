@@ -52,7 +52,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         if(json==null){
             logger.error("JSON not viable to convert into JSONObject.");
-            return new Air("",0,0,0,0,0,0,0,0,0,0);
+            return new Air("",0,0,0,0,0,0);
         }
 
         String date = null;
@@ -84,10 +84,15 @@ public class AirQualityServiceImpl implements AirQualityService{
         }
 
         if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null){
-            return new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3);
+            Air a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
+            a.setSo2(so2);
+            a.setPm25(pm25);
+            a.setPm10(pm10);
+            a.setNh3(nh3);
+            return a;
         }
 
-        return new Air("",0,0,0,0,0,0,0,0,0,0);
+        return new Air("",0,0,0,0,0,0);
     }
 
     @Override
@@ -172,8 +177,14 @@ public class AirQualityServiceImpl implements AirQualityService{
                 last=day;
             }
 
-            if(no2!=null && no!=null && o3!=null && so2!=null && pm2_5!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day>today){
-                lista.add(new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3));
+            if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day>today){
+                Air a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3);
+                a.setSo2(so2);
+                a.setPm25(pm25);
+                a.setPm10(pm10);
+                a.setNh3(nh3);
+
+                lista.add(a);
                 last=day;
             }
         }
@@ -270,7 +281,13 @@ public class AirQualityServiceImpl implements AirQualityService{
             }
 
             if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day<=today){
-                lista.add(new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3));
+                Air a = new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3);
+                a.setSo2(so2);
+                a.setPm25(pm25);
+                a.setPm10(pm10);
+                a.setNh3(nh3);
+
+                lista.add(a);
                 last=day;
             }
 

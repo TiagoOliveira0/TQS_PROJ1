@@ -36,7 +36,11 @@ public class CacheUnitTest {
     void add() {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
@@ -52,7 +56,11 @@ public class CacheUnitTest {
         assertEquals(cache.size(),0);
 
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
@@ -79,7 +87,11 @@ public class CacheUnitTest {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
         assertFalse( cache.containsCity("Aveiro"), "We did not add Aveiro, cache should not have it");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
@@ -95,7 +107,11 @@ public class CacheUnitTest {
         assertFalse( cache.containsCity("Aveiro"), "We did not add Aveiro, cache should not have it");
         assertFalse( cache.containsInfo("Aveiro"), "We did not add Aveiro, cache should not have Aveiro info");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         Map<City, List<Air>> map = new HashMap<>();
         map.put(c1,lista);
@@ -115,7 +131,11 @@ public class CacheUnitTest {
     void getValue() {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
@@ -129,7 +149,11 @@ public class CacheUnitTest {
     void getCity() {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
@@ -143,7 +167,11 @@ public class CacheUnitTest {
     void timetolive() {
         assertTrue( cache.isEmpty(), "Empty stack should be empty");
         City c1 = new City("Aveiro");
-        Air a1 = new Air("",0,0,0,0,0,0,0,0,0,0);
+        Air a1 = new Air("",0,0,0,0,0,0);
+        a1.setSo2(0);
+        a1.setPm25(0);
+        a1.setPm10(0);
+        a1.setNh3(0);
         List<Air> lista = new ArrayList<>();
         lista.add(a1);
         Map<City, List<Air>> map = new HashMap<>();
