@@ -33,7 +33,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class AirQualityNextTest {
+class AirQualityNextTest {
   private WebDriver driver;
 
   @BeforeEach
@@ -58,7 +58,7 @@ public class AirQualityNextTest {
   }
 
   @Test
-  public void airQualityNextTest() {
+  void airQualityNextTest() {
     driver.get("http://localhost:8080/");
     driver.manage().window().setSize(new Dimension(550, 705));
     driver.findElement(By.id("services")).click();

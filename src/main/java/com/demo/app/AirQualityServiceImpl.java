@@ -5,9 +5,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,7 +14,6 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class AirQualityServiceImpl implements AirQualityService{
@@ -63,7 +60,7 @@ public class AirQualityServiceImpl implements AirQualityService{
         Float no = null;
         Float o3 = null;
         Float so2 = null;
-        Float pm2_5 = null;
+        Float pm25 = null;
         Float pm10 = null;
         Float nh3 = null;
         Float co = null;
@@ -78,7 +75,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             no = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no"));
             o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("o3"));
             so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("so2"));
-            pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString(P25));
+            pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString(P25));
             pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("pm10"));
             nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("nh3"));
             co = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("co"));
@@ -86,9 +83,8 @@ public class AirQualityServiceImpl implements AirQualityService{
             logger.error("One of the JSON fields was null and so it was not possible to convert it.");
         }
 
-        if(no2!=null && no!=null && o3!=null && so2!=null && pm2_5!=null && pm10!=null && nh3!=null && co!=null){
-            Air a = new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm2_5,pm10,nh3);
-            return a;
+        if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null){
+            return new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3);
         }
 
         return new Air("",0,0,0,0,0,0,0,0,0,0);
@@ -140,7 +136,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             Float no = null;
             Float o3 = null;
             Float so2 = null;
-            Float pm2_5 = null;
+            Float pm25 = null;
             Float pm10 = null;
             Float nh3 = null;
             Float co = null;
@@ -156,7 +152,7 @@ public class AirQualityServiceImpl implements AirQualityService{
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
                 o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
                 so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
-                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
                 pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
                 nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
                 co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
@@ -177,7 +173,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             }
 
             if(no2!=null && no!=null && o3!=null && so2!=null && pm2_5!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day>today){
-                lista.add(new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm2_5,pm10,nh3));
+                lista.add(new Air(date,Float.parseFloat(city.getLat()),Float.parseFloat(city.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3));
                 last=day;
             }
         }
@@ -237,7 +233,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             Float no = null;
             Float o3 = null;
             Float so2 = null;
-            Float pm2_5 = null;
+            Float pm25 = null;
             Float pm10 = null;
             Float nh3 = null;
             Float co = null;
@@ -253,7 +249,7 @@ public class AirQualityServiceImpl implements AirQualityService{
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
                 o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
                 so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
-                pm2_5 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
                 pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
                 nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
                 co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
@@ -273,8 +269,8 @@ public class AirQualityServiceImpl implements AirQualityService{
                 last=day;
             }
 
-            if(no2!=null && no!=null && o3!=null && so2!=null && pm2_5!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day<=today){
-                lista.add(new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3,so2,pm2_5,pm10,nh3));
+            if(no2!=null && no!=null && o3!=null && so2!=null && pm25!=null && pm10!=null && nh3!=null && co!=null && day!=null && !day.equals(last) && day<=today){
+                lista.add(new Air(date,Float.parseFloat(c.getLat()),Float.parseFloat(c.getLon()),co,no,no2,o3,so2,pm25,pm10,nh3));
                 last=day;
             }
 

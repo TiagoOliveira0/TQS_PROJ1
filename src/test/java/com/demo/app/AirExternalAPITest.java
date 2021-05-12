@@ -45,7 +45,7 @@ public class AirExternalAPITest {
     }
 
     @Test
-    public void whenGetAirqualityNow_thenReturnAirQuality( ){
+    void whenGetAirqualityNow_thenReturnAirQuality( ){
         City c1 = new City("40.528484","-8.7655525","Aveiro");
 
         when().
@@ -61,7 +61,7 @@ public class AirExternalAPITest {
     }
 
     @Test
-    public void whenGetAirqualityNext_thenReturnAirQuality( ) throws Exception {
+    void whenGetAirqualityNext_thenReturnAirQuality( ) throws Exception {
         City c1 = new City("40.528484","-8.7655525","Aveiro");
 
 
@@ -94,7 +94,7 @@ public class AirExternalAPITest {
     }
 
     @Test
-    public void whenGetAirqualityLast_thenReturnAirQuality( ) throws Exception {
+    void whenGetAirqualityLast_thenReturnAirQuality( ) throws Exception {
         City c1 = new City("40.528484","-8.7655525","Aveiro");
 
         when().

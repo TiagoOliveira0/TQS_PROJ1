@@ -59,7 +59,7 @@ public class Air {
         return so2;
     }
 
-    public float getPm2_5() {
+    public float getPm25() {
         return pm25;
     }
 
