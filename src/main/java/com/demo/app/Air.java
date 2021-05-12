@@ -1,7 +1,5 @@
 package com.demo.app;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Objects;
 
 public class Air {
@@ -12,13 +10,13 @@ public class Air {
     private float no2;
     private float o3;
     private float so2;
-    private float pm2_5;
+    private float pm25;
     private float pm10;
     private float nh3;
     private String date;
 
 
-    public Air(String date, float lat, float lon, float co, float no, float no2, float o3, float so2, float pm2_5, float pm10, float nh3) {
+    public Air(String date, float lat, float lon, float co, float no, float no2, float o3, float so2, float pm25, float pm10, float nh3) {
         this.date = date;
         this.lat = lat;
         this.lon = lon;
@@ -27,7 +25,7 @@ public class Air {
         this.no2 = no2;
         this.o3 = o3;
         this.so2 = so2;
-        this.pm2_5 = pm2_5;
+        this.pm25 = pm25;
         this.pm10 = pm10;
         this.nh3 = nh3;
     }
@@ -62,7 +60,7 @@ public class Air {
     }
 
     public float getPm2_5() {
-        return pm2_5;
+        return pm25;
     }
 
     public float getPm10() {
@@ -79,15 +77,15 @@ public class Air {
 
     @Override
     public int hashCode() {
-        return Objects.hash(lat, lon, co, no, no2, o3, so2, pm2_5, pm10, nh3);
+        return Objects.hash(lat, lon, co, no, no2, o3, so2, pm25, pm10, nh3);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Air air = (Air) o;
-        return Float.compare(air.lat, lat) == 0 && Float.compare(air.lon, lon) == 0 && Float.compare(air.co, co) == 0 && Float.compare(air.no, no) == 0 && Float.compare(air.no2, no2) == 0 && Float.compare(air.o3, o3) == 0 && Float.compare(air.so2, so2) == 0 && Float.compare(air.pm2_5, pm2_5) == 0 && Float.compare(air.pm10, pm10) == 0 && Float.compare(air.nh3, nh3) == 0 && Objects.equals(date, air.date);
+        Air var = (Air) o;
+        return Float.compare(var.lat, lat) == 0 && Float.compare(var.lon, lon) == 0 && Float.compare(var.co, co) == 0 && Float.compare(var.no, no) == 0 && Float.compare(var.no2, no2) == 0 && Float.compare(var.o3, o3) == 0 && Float.compare(var.so2, so2) == 0 && Float.compare(var.pm25, pm25) == 0 && Float.compare(var.pm10, pm10) == 0 && Float.compare(var.nh3, nh3) == 0 && Objects.equals(date, var.date);
     }
 
 }

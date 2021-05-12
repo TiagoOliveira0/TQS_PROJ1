@@ -1,6 +1,5 @@
 package com.demo.app;
 
-import org.json.JSONException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
