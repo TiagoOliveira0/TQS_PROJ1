@@ -33,7 +33,6 @@ public class Air {
     }
 
 
-
     public float getLat() {
         return lat;
     }

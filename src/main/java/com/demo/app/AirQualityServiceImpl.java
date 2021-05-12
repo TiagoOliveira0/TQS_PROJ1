@@ -55,7 +55,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         if(json==null){
             logger.error("JSON not viable to convert into JSONObject.");
-            return null;
+            return new Air("",0,0,0,0,0,0,0,0,0,0);
         }
 
         String date = null;
@@ -111,11 +111,12 @@ public class AirQualityServiceImpl implements AirQualityService{
             json = new JSONObject(json1);
         } catch (JSONException e) {
             logger.error("No JSON found.");
+            return new ArrayList<>();
         }
 
         if(json==null){
             logger.error("JSON was not viable to convert into JSONObject.");
-            return null;
+            return new ArrayList<>();
         }
 
         List<Air> lista = new ArrayList<>();
@@ -130,7 +131,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         if(tam==0){
             logger.warn("Request to the API came empty.");
-            return null;
+            return new ArrayList<>();
         }   
 
         for(int i=0; i<tam;i++) {
@@ -168,6 +169,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             } catch (JSONException e) {
                 logger.error("JSONexcepetion trying to convert it.");
+                return new ArrayList<>();
             }
 
             if(last == null && day!=null){
@@ -185,7 +187,7 @@ public class AirQualityServiceImpl implements AirQualityService{
         }
 
         logger.error("No data found.");
-        return null;
+        return new ArrayList<>();
 
     }
 
@@ -206,11 +208,12 @@ public class AirQualityServiceImpl implements AirQualityService{
             json = new JSONObject(json1);
         } catch (JSONException e) {
             logger.error("JSONExcepetion trying to converting it.");
+            return new ArrayList<>();
         }
 
         if(json==null){
             logger.error("JSON requested came null.");
-            return null;
+            return new ArrayList<>();
         }
 
         List<Air> lista = new ArrayList<>();
@@ -225,7 +228,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         if(tam==0){
             logger.error("JSON requested came null.");
-            return null;
+            return new ArrayList<>();
         }
 
         for(int i=0; i<tam;i++) {
@@ -263,6 +266,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
             } catch (JSONException e) {
                 logger.error("JSONException trying to convert its fields.");
+                return new ArrayList<>();
             }
 
             if(last == null && day!=null){
@@ -281,6 +285,6 @@ public class AirQualityServiceImpl implements AirQualityService{
         }
 
         logger.error("No data found in the request.");
-        return null;
+        return new ArrayList<>();
     }
 }

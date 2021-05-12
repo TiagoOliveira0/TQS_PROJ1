@@ -27,6 +27,8 @@ public class AirRestController {
 
     private String err = "ErrorPage";
 
+    private String info = "Coordinates for the requested place were accessed via cache.";
+
     @Autowired
     private AirQualityService airQualityService;
 
@@ -54,7 +56,7 @@ public class AirRestController {
                 model.addAttribute("air",cache1.getValue(city).get(0));
                 return "AirQualityNow";
             }
-            logger.info("Coordinates for the requested place were accessed via cache.");
+            logger.info(info);
             c = cache1.getCity(city);
         }
 
@@ -89,7 +91,7 @@ public class AirRestController {
                 model.addAttribute("air", cache2.getValue(city));
                 return "AirQualityNext";
             }
-            logger.info("Coordinates for the requested place were accessed via cache.");
+            logger.info(info);
             c = cache2.getCity(city);
         }
 
@@ -123,7 +125,7 @@ public class AirRestController {
                 model.addAttribute("air",cache3.getValue(city));
                 return "AirQualityLast";
             }
-            logger.info("Coordinates for the place requested were accessed via cache.");
+            logger.info(info);
             c = cache3.getCity(city);
         }
 
@@ -154,7 +156,7 @@ public class AirRestController {
                 logger.info("Air pollution about today for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache1.getValue(city).get(0), HttpStatus.OK);
             }
-            logger.info("Coordinates for the place requested were accessed via cache.");
+            logger.info(info);
             c = cache1.getCity(city);
         }
 
@@ -193,7 +195,7 @@ public class AirRestController {
                 logger.info("Air pollution about the next 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache2.getValue(city),HttpStatus.OK);
             }
-            logger.info("Coordinates for the place requested were accessed via cache.");
+            logger.info(info);
             c = cache2.getCity(city);
         }
 
@@ -234,7 +236,7 @@ public class AirRestController {
                 logger.info("Air pollution about the last 5 days for the requested place accessed via cache because it was already requested less then " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + s);
                 return new ResponseEntity<>(cache3.getValue(city),HttpStatus.OK);
             }
-            logger.info("Coordinates were accessed via cache.");
+            logger.info(info);
             c = cache3.getCity(city);
         }
 
@@ -268,16 +270,16 @@ public class AirRestController {
     @GetMapping(path="/AirQuality/geo")
     public ResponseEntity<City> getGeoLocationbyCityAPI(@RequestParam String city){
         if(cache1.containsCity(city)){
-            logger.info("Coordinates were accessed via cache.");
+            logger.info(info);
             return new ResponseEntity<>(cache1.getCity(city),HttpStatus.OK);
         }
         if(cache2.containsCity(city)){
-            logger.info("Coordinates were accessed via cache.");
+            logger.info(info);
             return new ResponseEntity<>(cache2.getCity(city),HttpStatus.OK);
         }
 
         if(cache3.containsCity(city)){
-            logger.info("Coordinates were accessed via cache.");
+            logger.info(info);
             return new ResponseEntity<>(cache3.getCity(city),HttpStatus.OK);
         }
 
@@ -298,7 +300,7 @@ public class AirRestController {
         cache3.add(res);
 
         logger.info("AirQuality/geo API endpoint was accessed to request the coordinates a place.");
-        logger.info("Coordinates for the place requested was cached for " + TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS) + "s.");
+        logger.info("Coordinates for the requested place was cached for " + TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS) + "s.");
         return new ResponseEntity<>(c,HttpStatus.OK);
     }
 
