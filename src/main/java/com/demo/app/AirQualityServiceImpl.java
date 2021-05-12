@@ -28,7 +28,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
     private String com = "components";
 
-    private String P25 = "pm2_5";
+    private String p25 = "pm2_5";
 
     @Value("${api1.key}")
     private String api1Key;
@@ -75,7 +75,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             no = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("no"));
             o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("o3"));
             so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("so2"));
-            pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString(P25));
+            pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString(p25));
             pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("pm10"));
             nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("nh3"));
             co = Float.parseFloat(json.getJSONArray("list").getJSONObject(0).getJSONObject(com).getString("co"));
@@ -157,7 +157,7 @@ public class AirQualityServiceImpl implements AirQualityService{
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
                 o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
                 so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
-                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(p25));
                 pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
                 nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
                 co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
@@ -189,7 +189,7 @@ public class AirQualityServiceImpl implements AirQualityService{
             }
         }
 
-        if(lista.size()!=0){
+        if(!lista.isEmpty()){
             return lista;
         }
 
@@ -260,7 +260,7 @@ public class AirQualityServiceImpl implements AirQualityService{
                 no = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("no"));
                 o3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("o3"));
                 so2 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("so2"));
-                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(P25));
+                pm25 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString(p25));
                 pm10 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("pm10"));
                 nh3 = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("nh3"));
                 co = Float.parseFloat(json.getJSONArray("list").getJSONObject(i).getJSONObject(com).getString("co"));
@@ -293,7 +293,7 @@ public class AirQualityServiceImpl implements AirQualityService{
 
         }
 
-        if(lista.size()!=0){
+        if(!lista.isEmpty()){
             return lista;
         }
 

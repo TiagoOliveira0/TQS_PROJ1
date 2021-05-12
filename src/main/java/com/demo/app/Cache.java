@@ -1,8 +1,5 @@
 package com.demo.app;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 class Cache implements CacheService{
@@ -30,11 +27,7 @@ class Cache implements CacheService{
 
     public boolean isEmpty(){
         onAccess();
-        if(map.size()==0)
-            return true;
-
-        else
-            return false;
+        return map.size() == 0;
     }
 
     public int size(){
@@ -77,7 +70,7 @@ class Cache implements CacheService{
         for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
             Map<City, List<Air>> resultados = it.next().getKey();
             for(City i: resultados.keySet()){
-                if(i.getCname().equals(city) && resultados.get(i).size()!=0)
+                if(i.getCname().equals(city) && !resultados.get(i).isEmpty())
                     return true;
             }
         }
