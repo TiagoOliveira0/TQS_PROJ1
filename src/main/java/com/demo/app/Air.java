@@ -84,8 +84,8 @@ public class Air {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Air var = (Air) o;
-        return Float.compare(var.lat, lat) == 0 && Float.compare(var.lon, lon) == 0 && Float.compare(var.co, co) == 0 && Float.compare(var.no, no) == 0 && Float.compare(var.no2, no2) == 0 && Float.compare(var.o3, o3) == 0 && Float.compare(var.so2, so2) == 0 && Float.compare(var.pm25, pm25) == 0 && Float.compare(var.pm10, pm10) == 0 && Float.compare(var.nh3, nh3) == 0 && Objects.equals(date, var.date);
+        Air a = (Air) o;
+        return Float.compare(a.lat, lat) == 0 && Float.compare(a.lon, lon) == 0 && Float.compare(a.co, co) == 0 && Float.compare(a.no, no) == 0 && Float.compare(a.no2, no2) == 0 && Float.compare(a.o3, o3) == 0 && Float.compare(a.so2, so2) == 0 && Float.compare(a.pm25, pm25) == 0 && Float.compare(a.pm10, pm10) == 0 && Float.compare(a.nh3, nh3) == 0 && Objects.equals(date, a.date);
     }
 
 }

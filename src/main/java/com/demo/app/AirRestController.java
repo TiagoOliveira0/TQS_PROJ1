@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -64,15 +63,15 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air air = airQualityService.getAirByNow(c);
+            Air var = airQualityService.getAirByNow(c);
             Map<City, List<Air>> res = new HashMap<>();
             List<Air> lista = new ArrayList<>();
-            lista.add(air);
+            lista.add(var);
             res.put(c,lista);
             cache1.add(res);
             logger.info("AirQualityNow page was accessed.");
             logger.info("Air pollution about today for the requested place was cached for the next " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s.");
-            model.addAttribute("air", air);
+            model.addAttribute("air", var);
             return "AirQualityNow";
         }
         else{
@@ -164,16 +163,16 @@ public class AirRestController {
             c = airQualityGeoLocationService.getCoordsByCity(city);
 
         if(city!=null && c!=null){
-            Air air = airQualityService.getAirByNow(c);
-            if(air!=null){
+            Air var = airQualityService.getAirByNow(c);
+            if(var!=null){
                 Map<City, List<Air>> res = new HashMap<>();
                 List<Air> lista = new ArrayList<>();
-                lista.add(air);
+                lista.add(var);
                 res.put(c,lista);
                 cache1.add(res);
                 logger.info("AirQuality/now API endpoint was accessed.");
                 logger.info("Air pollution about today for the requested place was cached for the next " + TimeUnit.SECONDS.convert(cache1.getAvg(), TimeUnit.NANOSECONDS) + "s.");
-                return new ResponseEntity<>(air,HttpStatus.OK);
+                return new ResponseEntity<>(var,HttpStatus.OK);
             }
             else{
                 logger.error("No air pollution data found.");
@@ -206,7 +205,7 @@ public class AirRestController {
 
         if(city!=null && c!=null){
             air = airQualityService.getAirNextDays(c);
-            if(air.size()!=0){
+            if(!air.isEmpty()){
                 Map<City,List<Air>> res = new HashMap<>();
                 res.put(c,air);
                 cache2.add(res);
@@ -247,7 +246,7 @@ public class AirRestController {
 
         if(city!=null){
             air = airQualityService.getAirLastDays(c);
-            if(air.size()!=0){
+            if(!air.isEmpty()){
                 Map<City, List<Air>> res = new HashMap<>();
                 res.put(c,air);
                 cache3.add(res);
@@ -283,9 +282,9 @@ public class AirRestController {
             return new ResponseEntity<>(cache3.getCity(city),HttpStatus.OK);
         }
 
-        City c = airQualityGeoLocationService.getCoordsByCity(city);
+        City var = airQualityGeoLocationService.getCoordsByCity(city);
 
-        if(c == null){
+        if(var == null){
             logger.error("There are no coordinates found fot city requested.");
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
@@ -294,14 +293,14 @@ public class AirRestController {
         List<Air> air = new ArrayList<>();
         Map<City,List<Air>> res = new HashMap<>();
 
-        res.put(c,air);
+        res.put(var,air);
         cache1.add(res);
         cache2.add(res);
         cache3.add(res);
 
         logger.info("AirQuality/geo API endpoint was accessed to request the coordinates a place.");
         logger.info("Coordinates for the requested place was cached for " + TimeUnit.SECONDS.convert(cache3.getAvg(), TimeUnit.NANOSECONDS) + "s.");
-        return new ResponseEntity<>(c,HttpStatus.OK);
+        return new ResponseEntity<>(var,HttpStatus.OK);
     }
 
 
