@@ -68,9 +68,10 @@ class Cache implements CacheService{
     public boolean containsInfo(String city) {
         onAccess();
         for (Iterator<Map.Entry<Map<City, List<Air>>, Long>> it = map.entrySet().iterator(); it.hasNext();) {
-            Map<City, List<Air>> resultados = it.next().getKey();
-            for(City i: resultados.keySet()){
-                if(i.getCname().equals(city) && !resultados.get(i).isEmpty())
+            Map.Entry<Map<City, List<Air>>, Long> resultados = it.next();
+            Map<City, List<Air>> resultados1 = resultados.getKey();
+            for(City i: resultados1.keySet()){
+                if(i.getCname().equals(city) && !resultados1.get(i).isEmpty())
                     return true;
             }
         }
